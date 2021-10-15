@@ -1,26 +1,6 @@
 import { AsyncArray, Deferred, Homework, Reduce } from "./types";
 
 export = function (o: Homework): Reduce {
-  // hack for specific ci test environment,
-  // it requires to have all helpers inside the closure
-  //<editor-fold desc="hack for specific ci test environment">
-  // @ts-ignore
-  var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    // @ts-ignore
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    // @ts-ignore
-    return new (P || (P = Promise))(function (resolve, reject) {
-      // @ts-ignore
-      function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-      // @ts-ignore
-      function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-      // @ts-ignore
-      function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-      step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-  };
-  //</editor-fold>
-
   function getDeferred<T>(): Deferred<T> {
     const d: { [key: string]: any } = {};
     d.promise = new Promise<T>((r) => {
